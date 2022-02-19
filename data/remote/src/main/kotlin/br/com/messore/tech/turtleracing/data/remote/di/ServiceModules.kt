@@ -13,5 +13,5 @@ class ServiceModules {
     fun provideAuthService(retrofit: Retrofit) = retrofit.create<AuthService>()
 
     @Provides
-    fun provideTurtleService(retrofit: Retrofit) = retrofit.create<TurtleService>()
+    fun provideTurtleService(@Authenticated retrofit: Retrofit) = retrofit.create<TurtleService>()
 }
