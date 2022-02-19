@@ -13,11 +13,11 @@ class TokenDataSourceRemote @Inject constructor(
     private val config: ApiConfig,
 ) : TokenDataSource.Remote {
     override suspend fun getToken(): Token {
-        return runCatching {
+        return config.runCatching {
             authService.login(
-                wallet = config.wallet,
-                sign = config.sign,
-                hash = config.hash
+                wallet = wallet,
+                sign = sign,
+                hash = hash
             )
         }.getOrThrowDomainError().toDomain()
     }
