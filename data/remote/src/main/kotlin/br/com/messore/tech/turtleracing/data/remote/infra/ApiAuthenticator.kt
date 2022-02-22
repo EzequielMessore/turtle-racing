@@ -8,16 +8,16 @@ import okhttp3.Response
 import okhttp3.Route
 
 class ApiAuthenticator(
-    private val tokenRepository: TokenRepository
+    private val tokenRepository: TokenRepository,
 ) : Authenticator {
 
     override fun authenticate(route: Route?, response: Response) = runBlocking {
-        val token = tokenRepository.getToken()
+        val token = tokenRepository.getNewToken()
 
         return@runBlocking response
             .request
             .newBuilder()
-            .useToken(token?.token ?: "")
+            .useToken(token.token)
             .build()
     }
 }
