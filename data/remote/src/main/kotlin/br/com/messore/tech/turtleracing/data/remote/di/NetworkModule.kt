@@ -1,8 +1,12 @@
 package br.com.messore.tech.turtleracing.data.remote.di
 
+import br.com.messore.tech.turtleracing.data.remote.infra.AuthInterceptor
+import br.com.messore.tech.turtleracing.data.remote.infra.ApiAuthenticator
+import br.com.messore.tech.turtleracing.domain.repositories.TokenRepository
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoSet
+import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,21 +28,48 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesOkHttpClient(
+    fun providesOkHttpBuilder(
         interceptors: Set<@JvmSuppressWildcards Interceptor>,
-    ) = OkHttpClient.Builder()
-        .apply {
-            interceptors.forEach { addInterceptor(it) }
-        }
+    ) = OkHttpClient.Builder().apply {
+        interceptors.forEach { addInterceptor(it) }
+    }
+
+    @Provides
+    @Singleton
+    fun provideRetrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl(url)
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(
+        builder: Retrofit.Builder,
+        okHttpClient: OkHttpClient.Builder,
+    ): Retrofit = builder
+        .client(okHttpClient.build())
         .build()
 
     @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(url)
-        .client(okHttpClient)
+    @Authenticated
+    fun provideRetrofitAuthenticated(
+        builder: Retrofit.Builder,
+        authenticator: Authenticator,
+        okHttpClient: OkHttpClient.Builder,
+    ): Retrofit = builder
+        .client(okHttpClient.authenticator(authenticator).build())
         .build()
 
-    // todo provides ApiAuthenticator and ApiAuthInterceptor
+    @Provides
+    @Singleton
+    fun provideApiAuthenticator(tokenRepository: TokenRepository): Authenticator {
+        return ApiAuthenticator(tokenRepository)
+    }
+
+    @Provides
+    @Singleton
+    @Authenticated
+    fun provideApiAuthInterceptor(tokenRepository: TokenRepository): Interceptor {
+        return AuthInterceptor(tokenRepository)
+    }
 }

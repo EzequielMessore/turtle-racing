@@ -13,5 +13,6 @@ java {
 
 dependencies {
     daggerDependencies()
+    coroutinesCoreDependencies()
     internalApi(":domain")
 }
