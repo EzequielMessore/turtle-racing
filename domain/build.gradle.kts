@@ -11,4 +11,6 @@ java {
 
 dependencies {
     daggerDependencies()
+
+    testImplementation(Libraries.Test.junit)
 }

@@ -7,6 +7,8 @@ import br.com.messore.tech.turtleracing.data.remote.service.TurtleService
 import br.com.messore.tech.turtleracing.domain.model.Run
 import br.com.messore.tech.turtleracing.domain.model.Turtle
 import br.com.messore.tech.turtleracing.domain.repositories.TurtleRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class TurtleRepositoryImpl @Inject constructor(
@@ -27,4 +29,9 @@ class TurtleRepositoryImpl @Inject constructor(
             else throw UnexpectedException(run.error)
         }.getOrThrowDomainError().toDomain()
     }
+
+    override suspend fun save(turtles: List<Turtle>) = withContext(Dispatchers.IO) {
+        //@TODO implement
+    }
+
 }

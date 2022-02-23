@@ -1,4 +1,4 @@
-package br.com.messore.tech.turtleracing.data.local.repository
+package br.com.messore.tech.turtleracing.data.local.source
 
 import br.com.messore.tech.turtleracing.data.local.dao.TokenDao
 import br.com.messore.tech.turtleracing.data.local.mapper.toDomain
