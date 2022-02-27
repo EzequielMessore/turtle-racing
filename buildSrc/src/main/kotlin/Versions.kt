@@ -37,7 +37,7 @@ object Versions {
 
     object AndroidX {
         object Ktx {
-            const val work = "2.6.0"
+            const val work = "2.7.1"
             const val core = "1.6.0"
             const val activity = "1.4.0"
         }

@@ -60,4 +60,6 @@ fun Project.roomDependencies() = dependencies {
 
 fun Project.workerDependencies() = dependencies {
     implementation(Libraries.AndroidX.Ktx.work)
+    api(Libraries.Hilt.work)
+    kapt(Libraries.Hilt.workCompiler)
 }
