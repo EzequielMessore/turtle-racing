@@ -7,10 +7,16 @@ plugins {
     id(Plugins.hilt)
 }
 
-androidLibConfig()
+androidLibConfig {
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+}
 
 dependencies {
     internalModule(":data:data")
+
+    androidTestDependencies()
 
     hiltDependencies()
     roomDependencies()
