@@ -56,5 +56,4 @@ dependencies {
     testImplementation(Libraries.Test.junit)
     androidTestImplementation(Libraries.Test.junitExt)
     androidTestImplementation(Libraries.Test.espresso)
-
 }
