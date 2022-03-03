@@ -9,7 +9,7 @@ branches:
     prefix: feature/
   - label: bug
     name: main
-    prefix: bug/
+    prefix: fix/
 openDraftPR: true
 copyIssueDescriptionToPR: true
 copyIssueLabelsToPR: true
