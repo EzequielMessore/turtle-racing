@@ -14,7 +14,7 @@ class AuthInterceptor(
             .newBuilder()
 
         val accessToken = tokenRepository.getToken()
-        accessToken.let {
+        accessToken?.let {
             requestBuilder.useToken(it.token)
         }
 
