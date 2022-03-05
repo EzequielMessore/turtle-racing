@@ -37,9 +37,6 @@ subprojects {
         }
     }
     apply(plugin = Plugins.ktlint)
-    repositories {
-        mavenCentral()
-    }
 }
 
 tasks.register("clean", Delete::class) {
