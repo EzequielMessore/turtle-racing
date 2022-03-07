@@ -48,17 +48,20 @@ object Versions {
 
     object Test {
         const val junit = "4.13.2"
+        const val jupiter = "5.8.0"
+        const val runner = "1.4.0"
 
         const val junitExt = "1.1.3"
         const val espresso = "3.4.0"
     }
 
     object Room {
-        private const val room = "2.4.1"
+        private const val room = "2.4.2"
 
         const val runtime = room
         const val ktx = room
         const val compiler = room
+        const val testing = room
     }
 
 
