@@ -1,8 +1,8 @@
 import com.android.build.api.dsl.ApplicationBuildType
 import com.android.build.api.dsl.ApplicationDefaultConfig
+import com.android.build.api.dsl.DefaultConfig
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import com.android.build.gradle.internal.dsl.BuildType
 import configs.AppConfig
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
@@ -72,7 +72,8 @@ fun Project.androidConfig(
 }
 
 fun Project.androidLibConfig(
-    androidConfig: LibraryExtension.() -> Unit = {}
+    androidConfig: LibraryExtension.() -> Unit = {},
+    defaultConfig: DefaultConfig.() -> Unit = {},
 ) = androidLib {
     compileSdk = AppConfig.Sdk.compile
 
@@ -82,6 +83,7 @@ fun Project.androidLibConfig(
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        defaultConfig()
     }
 
     buildTypes {

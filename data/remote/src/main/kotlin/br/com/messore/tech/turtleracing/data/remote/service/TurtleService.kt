@@ -1,9 +1,9 @@
 package br.com.messore.tech.turtleracing.data.remote.service
 
-import br.com.messore.tech.turtleracing.data.remote.model.Turtle as TurtleRemote
-import br.com.messore.tech.turtleracing.data.remote.model.Run as RunRemote
 import retrofit2.http.GET
 import retrofit2.http.Query
+import br.com.messore.tech.turtleracing.data.remote.model.Run as RunRemote
+import br.com.messore.tech.turtleracing.data.remote.model.Turtle as TurtleRemote
 
 interface TurtleService {
 
