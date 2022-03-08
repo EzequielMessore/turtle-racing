@@ -1,7 +1,7 @@
 package br.com.messore.tech.turtleracing.data.remote.di
 
-import br.com.messore.tech.turtleracing.data.remote.infra.AuthInterceptor
 import br.com.messore.tech.turtleracing.data.remote.infra.ApiAuthenticator
+import br.com.messore.tech.turtleracing.data.remote.infra.AuthInterceptor
 import br.com.messore.tech.turtleracing.domain.repositories.TokenRepository
 import dagger.Module
 import dagger.Provides

@@ -61,10 +61,13 @@ object Libraries {
         const val runtime = "androidx.room:room-runtime:${Versions.Room.runtime}"
         const val ktx = "androidx.room:room-ktx:${Versions.Room.ktx}"
         const val compiler = "androidx.room:room-compiler:${Versions.Room.compiler}"
+        const val testing = "androidx.room:room-testing:${Versions.Room.compiler}"
     }
 
     object Test {
         const val junit = "junit:junit:${Versions.Test.junit}"
+        const val runner = "androidx.test:runner:${Versions.Test.runner}"
+        const val jupiter = "org.junit.jupiter:junit-jupiter-api:${Versions.Test.jupiter}"
 
         const val junitExt = "androidx.test.ext:junit:${Versions.Test.junitExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.Test.espresso}"

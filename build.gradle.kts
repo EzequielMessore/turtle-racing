@@ -1,3 +1,7 @@
+plugins {
+    id(Plugins.ktlint) version Versions.ktlint
+}
+
 buildscript {
     repositories {
         gradlePluginPortal()
@@ -32,8 +36,8 @@ subprojects {
             jvmTarget = "11"
         }
     }
+    apply(plugin = Plugins.ktlint)
 }
-
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)

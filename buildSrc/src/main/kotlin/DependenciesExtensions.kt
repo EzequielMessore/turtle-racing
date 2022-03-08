@@ -1,7 +1,7 @@
 import extensions.androidTestImplementation
-import extensions.api
 import extensions.debugImplementation
 import extensions.implementation
+import extensions.testImplementation
 import extensions.kapt
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
@@ -42,6 +42,17 @@ fun Project.hiltDependencies() = dependencies {
     implementation(Libraries.Hilt.android)
 }
 
+fun Project.androidTestDependencies() = dependencies {
+    androidTestImplementation(Libraries.Test.runner)
+    androidTestImplementation(Libraries.Test.jupiter)
+    androidTestImplementation(Libraries.Test.junitExt)
+}
+
+fun Project.jupiterDependencies() = dependencies {
+    testImplementation(Libraries.Test.jupiter)
+    testImplementation(Libraries.Test.junitExt)
+}
+
 fun Project.lifecycleDependencies() = dependencies {
     implementation(Libraries.Lifecycle.runtime)
 }
@@ -56,10 +67,9 @@ fun Project.roomDependencies() = dependencies {
     kapt(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
     implementation(Libraries.Room.runtime)
+    implementation(Libraries.Room.testing)
 }
 
 fun Project.workerDependencies() = dependencies {
-    kapt(Libraries.Hilt.workCompiler)
-    api(Libraries.Hilt.work)
-    api(Libraries.AndroidX.Ktx.work)
+    implementation(Libraries.AndroidX.Ktx.work)
 }

@@ -15,5 +15,4 @@ interface RemoteModule {
 
     @Binds
     fun providesTurtleRepository(impl: TurtleRepositoryImpl): TurtleRepository
-
 }

@@ -12,7 +12,5 @@ class SaveTurtleUseCaseTest {
         useCase.execute()
 
         useCase("asdasd")
-
     }
-
 }
