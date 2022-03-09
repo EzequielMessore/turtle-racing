@@ -1,24 +1,28 @@
 package br.com.messore.tech.turtleracing
 
 import android.app.Application
-import br.com.messore.tech.turtleracing.workers.WorkerManager
-import br.com.messore.tech.turtleracing.workers.di.WorkerFactory
+import androidx.hilt.work.HiltWorkerFactory
+import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 import javax.inject.Inject
 
 @HiltAndroidApp
-class App : Application() {
+class App : Application(), Configuration.Provider {
 
     @Inject
-    lateinit var workerFactory: WorkerFactory
+    lateinit var workerFactory: HiltWorkerFactory
+
+    override fun getWorkManagerConfiguration() =
+        Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .build()
 
     override fun onCreate() {
         super.onCreate()
 
         Timber.plant(DebugTree())
-        WorkerManager.init(this, workerFactory)
     }
 
 }

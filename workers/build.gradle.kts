@@ -13,6 +13,6 @@ dependencies {
 
     implementation(Libraries.timber)
 
-    daggerDependencies()
+    hiltDependencies()
     workerDependencies()
 }

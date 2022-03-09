@@ -1,8 +1,9 @@
 import extensions.androidTestImplementation
+import extensions.api
 import extensions.debugImplementation
 import extensions.implementation
-import extensions.testImplementation
 import extensions.kapt
+import extensions.testImplementation
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 
@@ -72,4 +73,6 @@ fun Project.roomDependencies() = dependencies {
 
 fun Project.workerDependencies() = dependencies {
     implementation(Libraries.AndroidX.Ktx.work)
+    api(Libraries.Hilt.work)
+    kapt(Libraries.Hilt.workCompiler)
 }
