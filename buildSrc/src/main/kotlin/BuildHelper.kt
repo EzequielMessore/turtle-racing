@@ -81,7 +81,7 @@ fun Project.androidLibConfig(
         minSdk = AppConfig.Sdk.min
         targetSdk = AppConfig.Sdk.target
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AppConfig.instrumentationTestRunner
         consumerProguardFiles("consumer-rules.pro")
         defaultConfig()
     }
