@@ -1,5 +1,6 @@
 package br.com.messore.tech.turtleracing.data.remote.di
 
+import br.com.messore.tech.turtleracing.data.remote.extensions.addInterceptors
 import br.com.messore.tech.turtleracing.data.remote.infra.ApiAuthenticator
 import br.com.messore.tech.turtleracing.data.remote.infra.AuthInterceptor
 import br.com.messore.tech.turtleracing.domain.repositories.TokenRepository
@@ -18,21 +19,11 @@ import javax.inject.Singleton
 class NetworkModule {
     private val url = "https://play.turtleracing.io/home/"
 
-    @IntoSet
-    @Provides
-    @Singleton
-    fun providesHttpLoggingInterceptor(): Interceptor =
-        HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-
     @Provides
     @Singleton
     fun providesOkHttpBuilder(
         interceptors: Set<@JvmSuppressWildcards Interceptor>,
-    ) = OkHttpClient.Builder().apply {
-        interceptors.forEach { addInterceptor(it) }
-    }
+    ) = OkHttpClient.Builder().addInterceptors(interceptors)
 
     @Provides
     @Singleton
@@ -56,8 +47,12 @@ class NetworkModule {
         builder: Retrofit.Builder,
         authenticator: Authenticator,
         okHttpClient: OkHttpClient.Builder,
+        @Authenticated interceptors: Set<@JvmSuppressWildcards Interceptor>,
     ): Retrofit = builder
-        .client(okHttpClient.authenticator(authenticator).build())
+        .client(
+            okHttpClient.authenticator(authenticator)
+                .addInterceptors(interceptors).build()
+        )
         .build()
 
     @Provides
@@ -66,6 +61,14 @@ class NetworkModule {
         return ApiAuthenticator(tokenRepository)
     }
 
+    @IntoSet
+    @Provides
+    @Singleton
+    fun providesHttpLoggingInterceptor(): Interceptor = HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+
+    @IntoSet
     @Provides
     @Singleton
     @Authenticated

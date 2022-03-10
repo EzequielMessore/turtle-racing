@@ -4,14 +4,14 @@ import br.com.messore.tech.turtleracing.data.remote.UnexpectedException
 import br.com.messore.tech.turtleracing.data.remote.extensions.getOrThrowDomainError
 import br.com.messore.tech.turtleracing.data.remote.mapper.toDomain
 import br.com.messore.tech.turtleracing.data.remote.service.TurtleService
+import br.com.messore.tech.turtleracing.data.source.TurtleDataSource
 import br.com.messore.tech.turtleracing.domain.model.Run
 import br.com.messore.tech.turtleracing.domain.model.Turtle
-import br.com.messore.tech.turtleracing.domain.repositories.TurtleRepository
 import javax.inject.Inject
 
-class TurtleRepositoryImpl @Inject constructor(
+class TurtleDataSourceRemote @Inject constructor(
     private val service: TurtleService,
-) : TurtleRepository {
+) : TurtleDataSource.Remote {
 
     override suspend fun getTurtles(): List<Turtle> {
         return runCatching { service.getTurtles() }

@@ -13,10 +13,8 @@ class AuthInterceptor(
         val requestBuilder = chain.request()
             .newBuilder()
 
-        val accessToken = tokenRepository.getToken()
-        accessToken.let {
-            requestBuilder.useToken(it.token)
-        }
+        val token = tokenRepository.getToken()
+        requestBuilder.useToken(token.token)
 
         return chain.proceed(requestBuilder.build())
     }

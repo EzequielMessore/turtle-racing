@@ -45,13 +45,7 @@ fun Project.hiltDependencies() = dependencies {
 
 fun Project.androidTestDependencies() = dependencies {
     androidTestImplementation(Libraries.Test.runner)
-    androidTestImplementation(Libraries.Test.jupiter)
     androidTestImplementation(Libraries.Test.junitExt)
-}
-
-fun Project.jupiterDependencies() = dependencies {
-    testImplementation(Libraries.Test.jupiter)
-    testImplementation(Libraries.Test.junitExt)
 }
 
 fun Project.lifecycleDependencies() = dependencies {
@@ -68,7 +62,6 @@ fun Project.roomDependencies() = dependencies {
     kapt(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
     implementation(Libraries.Room.runtime)
-    implementation(Libraries.Room.testing)
 }
 
 fun Project.workerDependencies() = dependencies {

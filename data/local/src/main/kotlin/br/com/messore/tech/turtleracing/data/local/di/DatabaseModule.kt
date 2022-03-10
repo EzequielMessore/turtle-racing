@@ -2,7 +2,6 @@ package br.com.messore.tech.turtleracing.data.local.di
 
 import android.content.Context
 import androidx.room.Room
-import br.com.messore.tech.turtleracing.data.local.dao.TokenDao
 import br.com.messore.tech.turtleracing.data.local.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -26,7 +25,8 @@ class DatabaseModule {
     }
 
     @Provides
-    internal fun provideTokenDao(appDatabase: AppDatabase): TokenDao {
-        return appDatabase.tokenDao()
-    }
+    internal fun providesTokenDao(appDatabase: AppDatabase) = appDatabase.tokenDao()
+
+    @Provides
+    internal fun providesTurtleDao(appDatabase: AppDatabase) = appDatabase.turtleDao()
 }
