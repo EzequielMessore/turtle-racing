@@ -1,0 +1,32 @@
+package br.com.messore.tech.turtleracing.data.local
+
+import br.com.messore.tech.turtleracing.data.local.mapper.toDomain
+import br.com.messore.tech.turtleracing.data.local.mapper.toEntity
+import br.com.messore.tech.turtleracing.data.local.model.TokenEntity
+import br.com.messore.tech.turtleracing.domain.model.Token
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class TokenMapperTest {
+
+    @Test
+    fun `toDomain should be converted successfully`() {
+        val entity = TokenEntity(id = 1, token = "entity-token")
+
+        val domain = entity.toDomain()
+
+        assertEquals(expected = Token::class, actual = domain::class)
+        assertEquals(expected = "entity-token", actual = domain.token)
+    }
+
+    @Test
+    fun `toEntity should be converted successfully`() {
+        val domain = Token(token = "domain-token")
+
+        val entity = domain.toEntity()
+
+        assertEquals(expected = 1, actual = entity.id)
+        assertEquals(expected = "domain-token", actual = entity.token)
+        assertEquals(expected = TokenEntity::class, actual = entity::class)
+    }
+}

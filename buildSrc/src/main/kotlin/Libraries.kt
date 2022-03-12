@@ -70,6 +70,7 @@ object Libraries {
 
         const val junitExt = "androidx.test.ext:junit:${Versions.Test.junitExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.Test.espresso}"
+        const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:${Versions.Test.kotlinTest}"
     }
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
