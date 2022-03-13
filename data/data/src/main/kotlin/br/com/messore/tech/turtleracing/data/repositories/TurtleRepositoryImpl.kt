@@ -9,11 +9,14 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class TurtleRepositoryImpl @Inject constructor(
-    private val localDataSource: TurtleDataSource.Local
+    private val localDataSource: TurtleDataSource.Local,
+    private val remoteDataSource: TurtleDataSource.Remote,
 ) : TurtleRepository {
 
     override suspend fun getTurtles(): List<Turtle> {
-        TODO("Not yet implemented")
+        return remoteDataSource.getTurtles().also {
+            localDataSource.save(it)
+        }
     }
 
     override suspend fun play(turtleId: String): Run {

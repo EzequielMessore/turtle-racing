@@ -47,12 +47,13 @@ object Versions {
     }
 
     object Test {
+        const val mockk = "1.12.0"
         const val junit = "4.13.2"
-        const val jupiter = "5.8.0"
         const val runner = "1.4.0"
-
         const val junitExt = "1.1.3"
         const val espresso = "3.4.0"
+        const val coroutines = "1.6.0"
+        const val kotlinTest = "1.6.10"
     }
 
     object Room {

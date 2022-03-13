@@ -6,8 +6,8 @@ import okhttp3.Request
 
 const val AUTHORIZATION = "Authorization"
 
-fun Request.Builder.useToken(token: String): Request.Builder = header(AUTHORIZATION, "Bearer $token")
+internal fun Request.Builder.useToken(token: String): Request.Builder = header(AUTHORIZATION, "Bearer $token")
 
-fun OkHttpClient.Builder.addInterceptors(interceptors: Collection<Interceptor>) = apply {
+internal fun OkHttpClient.Builder.addInterceptors(interceptors: Collection<Interceptor>) = apply {
     interceptors.forEach { addInterceptor(it) }
 }
