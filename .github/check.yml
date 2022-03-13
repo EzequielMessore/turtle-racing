@@ -3,9 +3,8 @@ name: pipeline check
 on:
   workflow_dispatch:
   push:
-  pull_request:
     branches:
-      - main
+      - 'feature/**'
 
 jobs:
   ktlint:
