@@ -1,0 +1,23 @@
+name: pipeline check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'feature/**'
+
+jobs:
+  ktlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Ktlint Verification
+        run: ./gradlew ktlintCheck
+  unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Unit tests
+        run: ./gradlew test
