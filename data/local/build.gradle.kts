@@ -29,6 +29,7 @@ androidLibConfig(
 dependencies {
     internalModule(":data:data")
 
+    androidTestImplementation(Libraries.Test.kotlinTest)
     androidTestDependencies()
 
     hiltDependencies()

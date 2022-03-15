@@ -53,6 +53,7 @@ object Versions {
 
         const val junitExt = "1.1.3"
         const val espresso = "3.4.0"
+        const val kotlinTest = "1.6.10"
     }
 
     object Room {

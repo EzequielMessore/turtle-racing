@@ -10,13 +10,14 @@ import br.com.messore.tech.turtleracing.data.local.migrations.MIGRATE_01_02
 import br.com.messore.tech.turtleracing.data.local.migrations.allMigrations
 import br.com.messore.tech.turtleracing.data.local.model.TurtleEntity
 import br.com.messore.tech.turtleracing.domain.model.TurtleType
-import org.junit.Assert
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
 import java.time.LocalTime
 import java.util.UUID
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
 
 @RunWith(AndroidJUnit4::class)
 class MigrationTest {
@@ -76,12 +77,12 @@ class MigrationTest {
             } while (cursor.moveToNext())
         }
 
-        Assert.assertNotNull(turtle)
-        Assert.assertEquals("61e89", turtle?.id)
-        Assert.assertEquals(100L, turtle?.energy)
-        Assert.assertEquals(TurtleType.COMMON.name, turtle?.type)
-        Assert.assertEquals(12L, turtle?.age)
-        Assert.assertEquals(2, turtle?.run)
-        Assert.assertEquals(LocalTime.of(12 , 12, 12), turtle?.timer)
+        assertNotNull(turtle)
+        assertEquals("61e89", turtle.id)
+        assertEquals(100L, turtle.energy)
+        assertEquals(TurtleType.COMMON.name, turtle.type)
+        assertEquals(12L, turtle.age)
+        assertEquals(2, turtle.run)
+        assertEquals(LocalTime.of(12 , 12, 12), turtle.timer)
     }
 }
