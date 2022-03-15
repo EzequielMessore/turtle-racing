@@ -14,7 +14,7 @@ class TurtleDataSourceRemote @Inject constructor(
 ) : TurtleDataSource.Remote {
 
     override suspend fun getTurtles(): List<Turtle> {
-        return runCatching { service.getTurtles() }
+        return runCatching { service.getTurtles().turtles }
             .getOrThrowDomainError()
             .toDomain()
     }

@@ -7,7 +7,7 @@ import okhttp3.Authenticator
 import okhttp3.Response
 import okhttp3.Route
 
-class ApiAuthenticator(
+internal class ApiAuthenticator(
     private val tokenRepository: TokenRepository,
 ) : Authenticator {
 

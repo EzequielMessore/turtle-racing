@@ -5,7 +5,7 @@ import br.com.messore.tech.turtleracing.domain.repositories.TokenRepository
 import okhttp3.Interceptor
 import okhttp3.Response
 
-class AuthInterceptor(
+internal class AuthInterceptor(
     private val tokenRepository: TokenRepository,
 ) : Interceptor {
 

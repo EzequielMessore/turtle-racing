@@ -66,11 +66,13 @@ object Libraries {
 
     object Test {
         const val junit = "junit:junit:${Versions.Test.junit}"
+        const val mockk = "io.mockk:mockk:${Versions.Test.mockk}"
         const val runner = "androidx.test:runner:${Versions.Test.runner}"
 
         const val junitExt = "androidx.test.ext:junit:${Versions.Test.junitExt}"
         const val espresso = "androidx.test.espresso:espresso-core:${Versions.Test.espresso}"
         const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:${Versions.Test.kotlinTest}"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.Test.coroutines}"
     }
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
