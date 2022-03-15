@@ -18,12 +18,12 @@ androidConfig(
 
         val properties = Properties().apply {
             val file = rootProject.file("wallet.properties")
-            load(file.reader())
+            if (file.exists()) load(file.reader())
         }
 
-        buildConfigField("String", "wallet", properties.getProperty("wallet"))
-        buildConfigField("String", "sign", properties.getProperty("sign"))
-        buildConfigField("String", "hash", properties.getProperty("hash"))
+        buildConfigField("String", "wallet", properties.getProperty("wallet", "\"\""))
+        buildConfigField("String", "sign", properties.getProperty("sign", "\"\""))
+        buildConfigField("String", "hash", properties.getProperty("hash", "\"\""))
     },
     anyConfig = {
         buildFeatures {
