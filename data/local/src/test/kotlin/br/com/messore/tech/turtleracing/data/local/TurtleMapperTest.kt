@@ -9,6 +9,7 @@ import java.time.LocalTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertSame
 
 class TurtleMapperTest {
 
@@ -18,16 +19,16 @@ class TurtleMapperTest {
         val entity = createEntity()
 
         val domain = entity.toDomain()
+        val expected = Turtle(
+            id = "id",
+            type = TurtleType.COMMON,
+            timer = LocalTime.parse("00:20:00"),
+            run = 2,
+            energy = 100,
+            age = 10
+        )
 
-        with(domain) {
-            assertEquals(expected = Turtle::class, actual = this::class)
-            assertEquals(expected = "id", actual = id)
-            assertEquals(expected = TurtleType.COMMON, actual = type)
-            assertEquals(expected = 10, actual = age)
-            assertEquals(expected = 100, actual = energy)
-            assertEquals(expected = 2, actual = run)
-            assertEquals(expected = LocalTime.parse("00:20:00"), actual = timer)
-        }
+        assertEquals(expected = expected, actual = domain)
     }
 
     @Test
@@ -46,15 +47,15 @@ class TurtleMapperTest {
 
         val entity = domain.toEntity()
 
-        with(entity) {
-            assertEquals(expected = TurtleEntity::class, actual = this::class)
-            assertEquals(expected = "id", actual = id)
-            assertEquals(expected = TurtleType.COMMON.name, actual = type)
-            assertEquals(expected = 25, actual = age)
-            assertEquals(expected = 65, actual = energy)
-            assertEquals(expected = 4, actual = run)
-            assertEquals(expected = LocalTime.parse("08:12:34"), actual = timer)
-        }
+        val expected = TurtleEntity(
+            id = "id",
+            type = TurtleType.COMMON.name,
+            timer = LocalTime.parse("08:12:34"),
+            run = 4,
+            energy = 65,
+            age = 25
+        )
+        assertEquals(expected = expected, actual = entity)
     }
 
     //endregion

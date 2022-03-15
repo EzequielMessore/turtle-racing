@@ -15,8 +15,8 @@ class TokenMapperTest {
 
         val domain = entity.toDomain()
 
-        assertEquals(expected = Token::class, actual = domain::class)
-        assertEquals(expected = "entity-token", actual = domain.token)
+        val expected = Token(token = "entity-token")
+        assertEquals(expected, domain)
     }
 
     @Test
@@ -25,8 +25,7 @@ class TokenMapperTest {
 
         val entity = domain.toEntity()
 
-        assertEquals(expected = 1, actual = entity.id)
-        assertEquals(expected = "domain-token", actual = entity.token)
-        assertEquals(expected = TokenEntity::class, actual = entity::class)
+        val expected = TokenEntity(id = 1, token = "domain-token")
+        assertEquals(expected, entity)
     }
 }
