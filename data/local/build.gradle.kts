@@ -11,7 +11,6 @@ androidLibConfig(
     defaultConfig = {
         javaCompileOptions {
             annotationProcessorOptions {
-                println("$projectDir/src/androidTest/kotlin/schemas/")
                 arguments += mapOf("room.schemaLocation" to "$projectDir/src/androidTest/schemas/")
             }
         }
@@ -31,6 +30,7 @@ dependencies {
     internalModule(":data:data")
 
     testImplementation(Libraries.Test.kotlinTest)
+    androidTestImplementation(Libraries.Test.kotlinTest)
     androidTestDependencies()
 
     hiltDependencies()
