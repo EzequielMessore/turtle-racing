@@ -3,6 +3,7 @@ package br.com.messore.tech.turtleracing.data.local.di
 import android.content.Context
 import androidx.room.Room
 import br.com.messore.tech.turtleracing.data.local.database.AppDatabase
+import br.com.messore.tech.turtleracing.data.local.migrations.allMigrations
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +22,7 @@ class DatabaseModule {
             context.applicationContext,
             AppDatabase::class.java,
             "turtle-bd"
-        ).build()
+        ).addMigrations(*allMigrations.toTypedArray()).build()
     }
 
     @Provides

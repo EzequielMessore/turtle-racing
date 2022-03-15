@@ -62,6 +62,7 @@ fun Project.roomDependencies() = dependencies {
     kapt(Libraries.Room.compiler)
     implementation(Libraries.Room.ktx)
     implementation(Libraries.Room.runtime)
+    androidTestImplementation(Libraries.Room.testing)
 }
 
 fun Project.workerDependencies() = dependencies {
