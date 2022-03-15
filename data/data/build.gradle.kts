@@ -12,7 +12,12 @@ java {
 }
 
 dependencies {
+    internalApi(":domain")
+
     daggerDependencies()
     coroutinesCoreDependencies()
-    internalApi(":domain")
+
+    testImplementation(Libraries.Test.mockk)
+    testImplementation(Libraries.Test.kotlinTest)
+    testImplementation(Libraries.Test.coroutines)
 }
