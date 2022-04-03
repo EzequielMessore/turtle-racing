@@ -16,15 +16,15 @@ import kotlin.test.assertTrue
 class GetTurtlesUseCaseTest {
 
     private val repository = mockk<TurtleRepository>()
-    private val useCase = GetTurtlesUseCase(repository)
+    private val useCase = ListTurtlesUseCase(repository)
 
     @Test
     fun `invoke Given getTurtles returns status success Then should return turtles`() = runTest {
-        coEvery { repository.getTurtles() } returns TurtleFactory.getTurtles(3)
+        coEvery { repository.getAll() } returns TurtleFactory.getTurtles(3)
 
         val turtles = useCase()
 
-        coVerify(exactly = 1) { repository.getTurtles() }
+        coVerify(exactly = 1) { repository.getAll() }
 
         assertTrue(turtles.isNotEmpty())
         assertEquals(expected = 3, actual = turtles.size)
@@ -32,12 +32,12 @@ class GetTurtlesUseCaseTest {
 
     @Test
     fun `invoke Given getTurtles throws an exception Then should throw the exception`() = runTest {
-        coEvery { repository.getTurtles() } throws Throwable("any exception")
+        coEvery { repository.getAll() } throws Throwable("any exception")
 
         assertFailsWith<Throwable>("any exception") {
             useCase()
         }
 
-        coVerify(exactly = 1) { repository.getTurtles() }
+        coVerify(exactly = 1) { repository.getAll() }
     }
 }
