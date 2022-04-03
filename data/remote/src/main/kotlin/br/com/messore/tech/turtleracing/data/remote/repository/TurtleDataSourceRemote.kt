@@ -13,8 +13,14 @@ class TurtleDataSourceRemote @Inject constructor(
     private val service: TurtleService,
 ) : TurtleDataSource.Remote {
 
-    override suspend fun getTurtles(): List<Turtle> {
-        return runCatching { service.getTurtles().turtles }
+    override suspend fun getTurtle(turtleId: String): Turtle {
+        return runCatching { service.getTurtle(turtleId).turtle }
+            .getOrThrowDomainError()
+            .toDomain()
+    }
+
+    override suspend fun getAll(): List<Turtle> {
+        return runCatching { service.getAll().turtles }
             .getOrThrowDomainError()
             .toDomain()
     }
