@@ -7,6 +7,7 @@ import br.com.messore.tech.turtleracing.data.remote.di.NetworkModule
 import br.com.messore.tech.turtleracing.data.remote.di.RemoteModule
 import br.com.messore.tech.turtleracing.data.remote.di.ServiceModules
 import br.com.messore.tech.turtleracing.domain.model.ApiConfig
+import br.com.messore.tech.turtleracing.workers.di.WorkerModule
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -19,6 +20,7 @@ import kotlinx.coroutines.Dispatchers
     includes = [
         DataModule::class,
         LocalModule::class,
+        WorkerModule::class,
         RemoteModule::class,
         NetworkModule::class,
         DatabaseModule::class,

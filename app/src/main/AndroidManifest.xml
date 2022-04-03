@@ -14,7 +14,7 @@
         android:theme="@style/Theme.TurtleRacing"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.TurtleActivity"
             android:exported="true"
             android:theme="@style/Theme.TurtleRacing.NoActionBar">
             <intent-filter>

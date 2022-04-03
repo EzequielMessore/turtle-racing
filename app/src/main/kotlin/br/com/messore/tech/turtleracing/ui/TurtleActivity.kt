@@ -11,15 +11,14 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import br.com.messore.tech.turtleracing.presentation.login.LoginViewModel
+import br.com.messore.tech.turtleracing.presentation.turtle.TurtleViewModel
 import br.com.messore.tech.turtleracing.ui.theme.TurtleRacingTheme
-import br.com.messore.tech.turtleracing.workers.RunnerWorker
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class TurtleActivity : ComponentActivity() {
 
-    private val viewModel by viewModels<LoginViewModel>()
+    private val viewModel by viewModels<TurtleViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +31,9 @@ class MainActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Button(onClick = {
-                        RunnerWorker.start(this@MainActivity)
+                        viewModel.startRunners()
                     }) {
-                        Text(text = "Click")
+                        Text(text = "Automatic run")
                     }
                 }
             }

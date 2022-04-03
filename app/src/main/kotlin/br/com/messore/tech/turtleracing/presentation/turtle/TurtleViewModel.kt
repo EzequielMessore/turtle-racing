@@ -1,30 +1,27 @@
-package br.com.messore.tech.turtleracing.presentation.login
+package br.com.messore.tech.turtleracing.presentation.turtle
 
 import androidx.lifecycle.viewModelScope
 import br.com.messore.tech.turtleracing.core.BaseViewModel
 import br.com.messore.tech.turtleracing.core.runCatchingWithDispatcher
 import br.com.messore.tech.turtleracing.di.CoroutineDispatcherDefault
-import br.com.messore.tech.turtleracing.domain.usecase.token.GetTokenUseCase
+import br.com.messore.tech.turtleracing.domain.usecase.runner.ScheduleRunnersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-    private val getTokenUseCase: GetTokenUseCase,
+class TurtleViewModel @Inject constructor(
+    private val scheduleRunnersUseCase: ScheduleRunnersUseCase,
     @CoroutineDispatcherDefault private val dispatcher: CoroutineDispatcher
-) : BaseViewModel<LoginUiState, LoginUiAction>(LoginUiState()) {
+) : BaseViewModel<TurtleUiState, TurtleUiAction>(TurtleUiState()) {
 
-    fun login() = viewModelScope.launch {
+    fun startRunners() = viewModelScope.launch {
         runCatchingWithDispatcher(
             dispatcher = dispatcher,
             execute = {
-                getTokenUseCase()
-            },
-            onSuccess = {},
-            onFailure = {},
+                scheduleRunnersUseCase()
+            }
         )
     }
 }
