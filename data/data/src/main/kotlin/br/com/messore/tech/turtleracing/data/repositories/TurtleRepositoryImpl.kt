@@ -13,7 +13,11 @@ class TurtleRepositoryImpl @Inject constructor(
     private val remoteDataSource: TurtleDataSource.Remote,
 ) : TurtleRepository {
 
-    override suspend fun getTurtles(): List<Turtle> {
+    override suspend fun getTurtle(turtleId: String): Turtle {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getAll(): List<Turtle> {
         return remoteDataSource.getTurtles().also {
             localDataSource.save(it)
         }
