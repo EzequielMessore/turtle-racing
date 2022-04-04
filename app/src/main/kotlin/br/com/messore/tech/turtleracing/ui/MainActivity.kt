@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import br.com.messore.tech.turtleracing.presentation.login.LoginViewModel
 import br.com.messore.tech.turtleracing.ui.theme.TurtleRacingTheme
-import br.com.messore.tech.turtleracing.workers.RunnerWorker
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,9 +30,7 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Button(onClick = {
-                        RunnerWorker.start(this@MainActivity)
-                    }) {
+                    Button(onClick = {}) {
                         Text(text = "Click")
                     }
                 }
