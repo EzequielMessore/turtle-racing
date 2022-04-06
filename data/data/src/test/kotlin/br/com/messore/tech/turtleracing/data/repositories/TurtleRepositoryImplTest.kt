@@ -21,13 +21,13 @@ class TurtleRepositoryImplTest {
 
     @Test
     fun `getAll Given returns success Then should returns turtles and save then`() = runTest {
-        coEvery { remote.getTurtles() } returns listOf()
+        coEvery { remote.getAll() } returns listOf()
         coEvery { local.save(any()) } just Runs
 
         val turtles = repository.getAll()
 
         coVerify(exactly = 1) {
-            remote.getTurtles()
+            remote.getAll()
             local.save(any())
         }
 
@@ -36,13 +36,13 @@ class TurtleRepositoryImplTest {
 
     @Test
     fun `getTurtles Given throws an exception Then should throw the exception`() = runTest {
-        coEvery { remote.getTurtles() } throws Throwable("any exception")
+        coEvery { remote.getAll() } throws Throwable("any exception")
 
         assertFailsWith<Throwable>("any exception") {
             repository.getAll()
         }
 
-        coVerify(exactly = 1) { remote.getTurtles() }
+        coVerify(exactly = 1) { remote.getAll() }
         coVerify(exactly = 0) { local.save(any()) }
     }
 }

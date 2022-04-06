@@ -18,6 +18,12 @@ fun LocalDateTime.plusDuration(duration: Duration): LocalDateTime {
     return plusSeconds(duration.seconds)
 }
 
+fun String.toLocalTime(): LocalTime {
+    return runCatching {
+        LocalTime.parse(this)
+    }.getOrDefault(LocalTime.of(0, 0, 30))
+}
+
 fun LocalDateTime.format(pattern: String = defaultPattern): String {
     return DateTimeFormatter.ofPattern(pattern).format(this)
 }

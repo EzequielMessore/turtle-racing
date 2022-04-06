@@ -14,17 +14,17 @@ class TurtleRepositoryImpl @Inject constructor(
 ) : TurtleRepository {
 
     override suspend fun getTurtle(turtleId: String): Turtle {
-        TODO("Not yet implemented")
+        return remoteDataSource.getTurtle(turtleId)
     }
 
     override suspend fun getAll(): List<Turtle> {
-        return remoteDataSource.getTurtles().also {
+        return remoteDataSource.getAll().also {
             localDataSource.save(it)
         }
     }
 
     override suspend fun play(turtleId: String): Run {
-        TODO("Not yet implemented")
+        return remoteDataSource.play(turtleId)
     }
 
     override suspend fun save(turtles: List<Turtle>) = withContext(Dispatchers.IO) {
