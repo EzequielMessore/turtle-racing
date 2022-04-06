@@ -8,5 +8,8 @@ data class Turtle(
     val type: TurtleType,
     val age: Long,
     val run: Int,
-    val timer: LocalTime
-)
+    val timer: LocalTime,
+    var missingRun: Int = 0,
+) {
+    val canRun get() = missingRun > 0
+}
