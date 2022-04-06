@@ -20,7 +20,7 @@ class TurtleRepositoryImplTest {
     private val repository = TurtleRepositoryImpl(local, remote)
 
     @Test
-    fun `getTurtles Given returns success Then should returns turtles and save then`() = runTest {
+    fun `getAll Given returns success Then should returns turtles and save then`() = runTest {
         coEvery { remote.getAll() } returns listOf()
         coEvery { local.save(any()) } just Runs
 

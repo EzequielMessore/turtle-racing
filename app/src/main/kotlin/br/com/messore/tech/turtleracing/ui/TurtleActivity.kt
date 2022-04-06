@@ -29,13 +29,7 @@ class TurtleActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Button(onClick = {
-                        viewModel.startRunners()
-                    }) {
-                        Text(text = "Automatic run")
-                    }
-                }
+                ) {}
             }
         }
     }

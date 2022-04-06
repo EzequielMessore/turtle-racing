@@ -16,7 +16,7 @@
         <activity
             android:name=".ui.TurtleActivity"
             android:exported="true"
-            android:theme="@style/Theme.TurtleRacing.NoActionBar">
+            android:theme="@style/Theme.TurtleRacing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
