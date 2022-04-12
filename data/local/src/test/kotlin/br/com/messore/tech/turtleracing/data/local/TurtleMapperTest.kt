@@ -26,7 +26,7 @@ class TurtleMapperTest {
             run = 2,
             energy = 100,
             age = 10,
-            visibleId = UUID.randomUUID().toString()
+            visibleId = "1234"
         )
 
         assertEquals(expected = expected, actual = domain)
@@ -55,7 +55,7 @@ class TurtleMapperTest {
             run = 4,
             energy = 65,
             age = 25,
-            visibleId = UUID.randomUUID().toString()
+            visibleId = "1234"
         )
         assertEquals(expected = expected, actual = entity)
     }
@@ -70,7 +70,7 @@ class TurtleMapperTest {
             energy = 100,
             run = 2,
             timer = LocalTime.of(0, 20, 0),
-            visibleId = UUID.randomUUID().toString()
+            visibleId = "1234"
         )
     }
 
@@ -82,7 +82,7 @@ class TurtleMapperTest {
             energy = 65,
             run = 4,
             timer = LocalTime.of(8, 12, 34),
-            visibleId = UUID.randomUUID().toString()
+            visibleId = "1234"
         )
     }
 }
