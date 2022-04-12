@@ -4,6 +4,7 @@ import java.time.LocalTime
 
 data class Turtle(
     val id: String,
+    val visibleId: String,
     val energy: Long,
     val type: TurtleType,
     val age: Long,

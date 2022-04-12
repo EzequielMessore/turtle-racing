@@ -14,4 +14,5 @@ internal fun Turtle.toDomain() = TurtleDomain(
     run = run,
     timer = timer.toLocalTime(),
     missingRun = missingRun.split("/").first().toInt(),
+    visibleId = idF
 )
