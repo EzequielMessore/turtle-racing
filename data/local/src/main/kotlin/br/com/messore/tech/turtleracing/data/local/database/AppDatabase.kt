@@ -10,7 +10,7 @@ import br.com.messore.tech.turtleracing.data.local.model.TokenEntity
 import br.com.messore.tech.turtleracing.data.local.model.TurtleEntity
 
 @TypeConverters(LocalTimeConverter::class)
-@Database(entities = [TokenEntity::class, TurtleEntity::class], version = 2)
+@Database(entities = [TokenEntity::class, TurtleEntity::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun tokenDao(): TokenDao
     abstract fun turtleDao() : TurtleDao

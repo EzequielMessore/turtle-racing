@@ -12,5 +12,6 @@ data class TurtleEntity(
     val type: String,
     val age: Long,
     val run: Int,
-    val timer: LocalTime
+    val timer: LocalTime,
+    val visibleId: String
 )
