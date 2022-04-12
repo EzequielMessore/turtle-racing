@@ -20,6 +20,7 @@ object TurtleFactory {
             age = 30,
             run = 2,
             timer = LocalTime.of(10, 20, 30),
+            visibleId = "1234"
         )
     }
 }
