@@ -37,6 +37,7 @@ androidConfig(
 )
 
 dependencies {
+    internalApi(":core:notification-ktx")
     internalApi(":data:data")
     internalApi(":data:local")
     internalApi(":data:remote")
