@@ -12,7 +12,7 @@ internal fun TurtleEntity.toDomain(): TurtleDomain {
         age = age,
         run = run,
         timer = timer,
-        visibleId = visibleId
+        visibleId = visibleId,
     )
 }
 
@@ -24,6 +24,6 @@ internal fun TurtleDomain.toEntity(): TurtleEntity {
         age = age,
         run = run,
         timer = timer,
-        visibleId = visibleId
+        visibleId = visibleId,
     )
 }
