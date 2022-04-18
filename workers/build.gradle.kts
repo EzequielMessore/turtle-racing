@@ -9,6 +9,7 @@ plugins {
 androidLibConfig()
 
 dependencies {
+    internalModule(":core:notification-ktx")
     internalModule(":domain")
 
     implementation(Libraries.timber)

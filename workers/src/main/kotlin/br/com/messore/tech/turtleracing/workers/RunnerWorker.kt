@@ -9,9 +9,13 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import androidx.work.workDataOf
+import br.com.messore.tech.core.notification.createBigTextNotification
+import br.com.messore.tech.core.notification.showNotification
 import br.com.messore.tech.turtleracing.domain.extensions.format
 import br.com.messore.tech.turtleracing.domain.extensions.plusDuration
 import br.com.messore.tech.turtleracing.domain.extensions.toDuration
+import br.com.messore.tech.turtleracing.domain.model.Run
+import br.com.messore.tech.turtleracing.domain.model.Turtle
 import br.com.messore.tech.turtleracing.domain.usecase.runner.PlayTurtleUseCase
 import br.com.messore.tech.turtleracing.domain.usecase.runner.ScheduleOneRunnerUseCase
 import br.com.messore.tech.turtleracing.domain.usecase.turtle.GetTurtleUseCase
@@ -23,7 +27,7 @@ import java.time.LocalTime
 
 @HiltWorker
 internal class RunnerWorker @AssistedInject constructor(
-    @Assisted context: Context,
+    @Assisted private val context: Context,
     @Assisted workerParams: WorkerParameters,
     private val getTurtleUseCase: GetTurtleUseCase,
     private val playTurtleUseCase: PlayTurtleUseCase,
@@ -37,11 +41,22 @@ internal class RunnerWorker @AssistedInject constructor(
         val turtle = getTurtleUseCase(turtleId)
 
         while (turtle.canRun) {
-            playTurtleUseCase(turtle)
+            playTurtleUseCase(turtle).also { run ->
+                sendSuccessNotification(turtle, run)
+            }
         }
 
         scheduleOneRunnerUseCase(turtleId)
         return Result.success()
+    }
+
+    private fun sendSuccessNotification(turtle: Turtle, run: Run) = context.run {
+        createBigTextNotification(
+            "Your turtle: ${turtle.visibleId} just ran",
+            "Your turtle finished the race in ${run.position}º earning ${run.profit}"
+        ).also { notification ->
+            showNotification(turtle.hashCode(), notification)
+        }
     }
 
     companion object {
