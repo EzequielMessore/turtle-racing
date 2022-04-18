@@ -77,6 +77,7 @@ class TurtleDaoTest {
                 age = it.toLong(),
                 run = it,
                 timer = LocalTime.of(12, 0),
+                visibleId = "id_$it"
             )
         }
     }

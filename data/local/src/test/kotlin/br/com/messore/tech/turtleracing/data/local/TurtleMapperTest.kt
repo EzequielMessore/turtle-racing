@@ -6,10 +6,10 @@ import br.com.messore.tech.turtleracing.data.local.model.TurtleEntity
 import br.com.messore.tech.turtleracing.domain.model.Turtle
 import br.com.messore.tech.turtleracing.domain.model.TurtleType
 import java.time.LocalTime
+import java.util.UUID
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlin.test.assertSame
 
 class TurtleMapperTest {
 
@@ -26,7 +26,7 @@ class TurtleMapperTest {
             run = 2,
             energy = 100,
             age = 10,
-            visibleId = ""
+            visibleId = "1234"
         )
 
         assertEquals(expected = expected, actual = domain)
@@ -54,7 +54,8 @@ class TurtleMapperTest {
             timer = LocalTime.parse("08:12:34"),
             run = 4,
             energy = 65,
-            age = 25
+            age = 25,
+            visibleId = "1234"
         )
         assertEquals(expected = expected, actual = entity)
     }
@@ -68,7 +69,8 @@ class TurtleMapperTest {
             age = 10,
             energy = 100,
             run = 2,
-            timer = LocalTime.of(0, 20, 0)
+            timer = LocalTime.of(0, 20, 0),
+            visibleId = "1234"
         )
     }
 
@@ -80,7 +82,7 @@ class TurtleMapperTest {
             energy = 65,
             run = 4,
             timer = LocalTime.of(8, 12, 34),
-            visibleId = "",
+            visibleId = "1234"
         )
     }
 }
