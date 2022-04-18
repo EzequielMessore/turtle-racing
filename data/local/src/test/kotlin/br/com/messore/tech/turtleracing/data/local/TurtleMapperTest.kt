@@ -25,7 +25,8 @@ class TurtleMapperTest {
             timer = LocalTime.parse("00:20:00"),
             run = 2,
             energy = 100,
-            age = 10
+            age = 10,
+            visibleId = ""
         )
 
         assertEquals(expected = expected, actual = domain)
@@ -78,7 +79,8 @@ class TurtleMapperTest {
             age = 25,
             energy = 65,
             run = 4,
-            timer = LocalTime.of(8, 12, 34)
+            timer = LocalTime.of(8, 12, 34),
+            visibleId = "",
         )
     }
 }

@@ -11,7 +11,8 @@ internal fun TurtleEntity.toDomain(): TurtleDomain {
         type = TurtleType.valueOf(type),
         age = age,
         run = run,
-        timer = timer
+        timer = timer,
+        visibleId = "",
     )
 }
 
@@ -22,6 +23,6 @@ internal fun TurtleDomain.toEntity(): TurtleEntity {
         type = type.name,
         age = age,
         run = run,
-        timer = timer
+        timer = timer,
     )
 }

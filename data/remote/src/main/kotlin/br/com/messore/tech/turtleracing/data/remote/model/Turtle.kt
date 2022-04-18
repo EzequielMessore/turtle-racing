@@ -16,5 +16,6 @@ data class Turtle(
     @SerializedName("timerF")
     val timer: String,
     @SerializedName("runF")
-    val missingRun: String
+    val missingRun: String,
+    val idF: String,
 )
