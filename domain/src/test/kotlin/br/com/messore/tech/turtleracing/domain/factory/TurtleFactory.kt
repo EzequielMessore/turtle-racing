@@ -18,9 +18,22 @@ object TurtleFactory {
             energy = 100,
             type = TurtleType.COMMON,
             age = 30,
-            run = 2,
+            run = 0,
             timer = LocalTime.of(10, 20, 30),
             visibleId = "1234"
+        )
+    }
+
+    fun getTurtleAbleToRun(): Turtle {
+        return Turtle(
+            id = "1",
+            energy = 100,
+            type = TurtleType.COMMON,
+            age = 30,
+            run = 1,
+            timer = LocalTime.of(10, 20, 30),
+            visibleId = "1234",
+            missingRun = 1
         )
     }
 }
