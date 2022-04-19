@@ -18,7 +18,7 @@ object TurtleFactory {
             energy = 100,
             type = TurtleType.COMMON,
             age = 30,
-            run = 0,
+            run = 2,
             timer = LocalTime.of(10, 20, 30),
             visibleId = "1234"
         )
