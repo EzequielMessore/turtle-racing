@@ -12,7 +12,7 @@ object TurtleFactory {
             getTurtle()
         }
 
-    private fun getTurtle(): Turtle {
+    fun getTurtle(): Turtle {
         return Turtle(
             id = UUID.randomUUID().toString(),
             energy = 100,
