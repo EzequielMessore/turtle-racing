@@ -3,12 +3,7 @@ package br.com.messore.tech.turtleracing.domain.usecase.runner
 import br.com.messore.tech.turtleracing.domain.factory.TurtleFactory
 import br.com.messore.tech.turtleracing.domain.repositories.TurtleRepository
 import br.com.messore.tech.turtleracing.domain.usecase.turtle.GetTurtleUseCase
-import io.mockk.coEvery
-import io.mockk.coVerify
-import io.mockk.every
-import io.mockk.just
-import io.mockk.mockk
-import io.mockk.runs
+import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
@@ -22,7 +17,7 @@ class ScheduleOneRunnerUseCaseTest {
     private val useCase = ScheduleOneRunnerUseCase(getTurtleUseCase, turtleRunnerScheduler)
 
     @Test
-    fun `invoke playTurtle returns status success Then should return a run`() = runTest {
+    fun `invoke schedule run turtle Then schedule one runner`() = runTest {
         coEvery { repository.getTurtle("1") } returns TurtleFactory.getTurtle()
         every { turtleRunnerScheduler.schedule(any(), any()) } just runs
 
