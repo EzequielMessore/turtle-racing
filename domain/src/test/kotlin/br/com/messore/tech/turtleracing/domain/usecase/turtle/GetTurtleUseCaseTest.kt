@@ -12,22 +12,21 @@ import org.junit.Test
 import java.time.LocalTime
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlin.test.assertTrue
 
 @ExperimentalCoroutinesApi
 class GetTurtleUseCaseTest {
     private val repository = mockk<TurtleRepository>()
     private val useCase = GetTurtleUseCase(repository)
+    private val turtleId = "1"
 
     @Test
     fun `invoke Given getTurtle returns status success Then should return a turtle`() = runTest {
         coEvery { repository.getTurtle(any()) } returns TurtleFactory.getTurtle()
-        val turtleId = "1"
+
         val turtle = useCase(turtleId)
 
         coVerify(exactly = 1) { repository.getTurtle(turtleId) }
 
-        assertTrue(turtleId.isNotEmpty())
         assertEquals(expected = 100, actual = turtle.energy)
         assertEquals(expected = TurtleType.COMMON, actual = turtle.type)
         assertEquals(expected = 30, actual = turtle.age)
@@ -39,7 +38,6 @@ class GetTurtleUseCaseTest {
     @Test
     fun `invoke Given getTurtle throws an exception Then should throw the exception`() = runTest {
         coEvery { repository.getTurtle(any()) } throws Throwable("any exception")
-        val turtleId = "1"
 
         assertFailsWith<Throwable>("any exception") {
             useCase(turtleId)

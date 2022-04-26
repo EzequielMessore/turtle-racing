@@ -9,9 +9,11 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.runs
+import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
+import java.time.LocalTime
 
 @ExperimentalCoroutinesApi
 class ScheduleOneRunnerUseCaseTest {
@@ -30,6 +32,10 @@ class ScheduleOneRunnerUseCaseTest {
 
         coVerify(exactly = 0) {
             useCase(turtleId)
+        }
+
+        verify(exactly = 0) {
+            turtleRunnerScheduler.schedule(turtleId, LocalTime.of(12, 0))
         }
     }
 }
