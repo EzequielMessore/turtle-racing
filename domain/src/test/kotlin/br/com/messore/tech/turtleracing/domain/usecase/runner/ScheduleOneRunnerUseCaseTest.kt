@@ -23,7 +23,7 @@ class ScheduleOneRunnerUseCaseTest {
 
     @Test
     fun `invoke schedule run turtle Then schedule one runner`() = runTest {
-        coEvery { repository.getTurtle("1") } returns TurtleFactory.getTurtle()
+        coEvery { repository.getTurtle(any()) } returns TurtleFactory.getTurtle()
         every { turtleRunnerScheduler.schedule(any(), any()) } just runs
 
         val turtleId = "1"
