@@ -3,7 +3,12 @@ package br.com.messore.tech.turtleracing.domain.usecase.runner
 import br.com.messore.tech.turtleracing.domain.factory.TurtleFactory
 import br.com.messore.tech.turtleracing.domain.repositories.TurtleRepository
 import br.com.messore.tech.turtleracing.domain.usecase.turtle.GetTurtleUseCase
-import io.mockk.*
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.runs
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
