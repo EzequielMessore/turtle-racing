@@ -25,14 +25,8 @@ object TurtleFactory {
     }
 
     fun getTurtleAbleToRun(): Turtle {
-        return Turtle(
+        return getTurtle().copy(
             id = "1",
-            energy = 100,
-            type = TurtleType.COMMON,
-            age = 30,
-            run = 1,
-            timer = LocalTime.of(10, 20, 30),
-            visibleId = "1234",
             missingRun = 1
         )
     }

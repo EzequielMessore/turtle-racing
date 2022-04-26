@@ -39,4 +39,13 @@ class PlayTurtleUseCaseTest {
             useCase(TurtleFactory.getTurtle())
         }
     }
+
+    @Test
+    fun `invoke playTurtle returns status error Then should throw the exception`() = runTest {
+        coEvery { repository.play(any()) } throws Throwable("any exception")
+
+        assertFailsWith<Throwable>("any exception") {
+            useCase(TurtleFactory.getTurtle())
+        }
+    }
 }
