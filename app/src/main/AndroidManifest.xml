@@ -14,7 +14,7 @@
         android:theme="@style/Theme.TurtleRacing"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.TurtleActivity"
+            android:name=".presentation.turtle.TurtleActivity"
             android:exported="true"
             android:theme="@style/Theme.TurtleRacing">
             <intent-filter>

@@ -10,7 +10,7 @@ object Versions {
         const val compose = "1.0.5"
 
         const val ui = compose
-        const val coil = "1.4.0"
+        const val coil = "2.0.0-rc03"
         const val uiTest = compose
         const val material = compose
         const val activity = "1.4.0"
