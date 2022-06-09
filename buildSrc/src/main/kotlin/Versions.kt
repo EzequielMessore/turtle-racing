@@ -10,7 +10,7 @@ object Versions {
         const val compose = "1.0.5"
 
         const val ui = compose
-        const val coil = "2.0.0-rc03"
+        const val coil = "2.0.0"
         const val uiTest = compose
         const val material = compose
         const val activity = "1.4.0"
@@ -65,8 +65,10 @@ object Versions {
         const val testing = room
     }
 
-
-    const val lifecycle = "2.4.0"
+    object Lifecycle {
+        const val lifecycle = "2.4.0"
+        const val viewModelCompose = "2.5.0-rc01"
+    }
 
     const val retrofit = "2.9.0"
     const val loggingInterceptor = "4.9.0"

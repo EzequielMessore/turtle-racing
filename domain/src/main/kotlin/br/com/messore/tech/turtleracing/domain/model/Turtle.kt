@@ -12,7 +12,7 @@ data class Turtle(
     val timer: LocalTime,
     var missingRun: Int = 0,
     val image: String? = null,
-    val expirationTime: Long,
+    val expirationTime: Long = 0,
 ) {
     val canRun get() = missingRun > 0
 }
