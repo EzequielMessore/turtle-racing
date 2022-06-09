@@ -12,6 +12,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 
 @ExperimentalCoroutinesApi
 class PlayTurtleUseCaseTest {
@@ -29,6 +30,19 @@ class PlayTurtleUseCaseTest {
 
         assertEquals(expected = 1, actual = run.position)
         assertEquals(expected = "1.50", actual = run.profit)
+    }
+
+    @Test
+    fun `invoke playTurtle returns status success Then must decrease a missingRun`() = runTest {
+        coEvery { repository.play(any()) } returns RunFactory.getRun()
+
+        val turtle = TurtleFactory.getTurtleAbleToRun()
+        useCase(turtle.copy(missingRun = 2))
+
+        coVerify(exactly = 1) { repository.play(any()) }
+
+        assertTrue(actual = turtle.canRun)
+        assertEquals(expected = 1, turtle.missingRun)
     }
 
     @Test

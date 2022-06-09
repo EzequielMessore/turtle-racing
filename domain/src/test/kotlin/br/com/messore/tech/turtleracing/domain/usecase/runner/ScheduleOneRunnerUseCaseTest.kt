@@ -30,12 +30,14 @@ class ScheduleOneRunnerUseCaseTest {
 
         val turtleId = "1"
 
-        coVerify(exactly = 0) {
-            useCase(turtleId)
+        useCase(turtleId)
+
+        coVerify(exactly = 1) {
+            getTurtleUseCase(any())
         }
 
-        verify(exactly = 0) {
-            turtleRunnerScheduler.schedule(turtleId, LocalTime.of(12, 0))
+        verify(exactly = 1) {
+            turtleRunnerScheduler.schedule(any(), any())
         }
     }
 }
