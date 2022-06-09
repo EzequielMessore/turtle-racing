@@ -12,7 +12,7 @@ object TurtleFactory {
             getTurtle()
         }
 
-    private fun getTurtle(): Turtle {
+    fun getTurtle(): Turtle {
         return Turtle(
             id = UUID.randomUUID().toString(),
             energy = 100,
@@ -21,6 +21,13 @@ object TurtleFactory {
             run = 2,
             timer = LocalTime.of(10, 20, 30),
             visibleId = "1234"
+        )
+    }
+
+    fun getTurtleAbleToRun(): Turtle {
+        return getTurtle().copy(
+            id = "1",
+            missingRun = 1
         )
     }
 }

@@ -13,7 +13,7 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
 @ExperimentalCoroutinesApi
-class GetTurtlesUseCaseTest {
+class ListTurtlesUseCaseTest {
 
     private val repository = mockk<TurtleRepository>()
     private val useCase = ListTurtlesUseCase(repository)
