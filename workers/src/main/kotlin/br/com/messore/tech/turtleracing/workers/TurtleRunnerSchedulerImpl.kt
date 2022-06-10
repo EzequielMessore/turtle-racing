@@ -13,4 +13,8 @@ class TurtleRunnerSchedulerImpl @Inject constructor(
     override fun schedule(turtleId: String, timer: LocalTime) {
         RunnerWorker.start(context, turtleId, timer)
     }
+
+    override fun recovery() {
+        RecoveryWorker.start(context)
+    }
 }

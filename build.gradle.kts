@@ -34,6 +34,7 @@ subprojects {
                 "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi",
             )
             jvmTarget = "11"
+            languageVersion = "1.5"
         }
     }
     apply(plugin = Plugins.ktlint)

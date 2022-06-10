@@ -30,4 +30,8 @@ class TurtleRepositoryImpl @Inject constructor(
     override suspend fun save(turtles: List<Turtle>) = withContext(Dispatchers.IO) {
         localDataSource.save(turtles)
     }
+
+    override suspend fun recovery(turtleId: String) {
+        remoteDataSource.recovery(turtleId)
+    }
 }
