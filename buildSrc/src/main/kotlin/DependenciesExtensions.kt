@@ -50,6 +50,7 @@ fun Project.androidTestDependencies() = dependencies {
 
 fun Project.lifecycleDependencies() = dependencies {
     implementation(Libraries.Lifecycle.runtime)
+    implementation(Libraries.Lifecycle.viewModelCompose)
 }
 
 fun Project.retrofitDependencies() = dependencies {

@@ -1,7 +1,7 @@
 import configs.AppConfig
 import extensions.androidTestImplementation
 import extensions.implementation
-import extensions.internalApi
+import extensions.internalModule
 import extensions.testImplementation
 import java.util.Properties
 
@@ -37,12 +37,12 @@ androidConfig(
 )
 
 dependencies {
-    internalApi(":core:notification-ktx")
-    internalApi(":data:data")
-    internalApi(":data:local")
-    internalApi(":data:remote")
-    internalApi(":domain")
-    internalApi(":workers")
+    internalModule(":core:notification-ktx")
+    internalModule(":data:data")
+    internalModule(":data:local")
+    internalModule(":data:remote")
+    internalModule(":domain")
+    internalModule(":workers")
 
     hiltDependencies()
     composeDependencies()

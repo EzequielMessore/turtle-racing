@@ -8,14 +8,17 @@ data class ListTurtleResponse(val turtles: List<Turtle>)
 
 data class Turtle(
     val id: String,
-    val energy: Long,
+    val energy: Int,
     @SerializedName("typeF")
     val type: TurtleType,
-    val age: Long,
+    val age: Int,
     val run: Int,
     @SerializedName("timerF")
     val timer: String,
     @SerializedName("runF")
     val missingRun: String,
     val idF: String,
+    val obs: String?,
+    val skinTurtle: String,
+    val layout: Int,
 )

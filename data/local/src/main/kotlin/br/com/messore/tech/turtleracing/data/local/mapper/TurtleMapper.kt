@@ -13,6 +13,7 @@ internal fun TurtleEntity.toDomain(): TurtleDomain {
         run = run,
         timer = timer,
         visibleId = visibleId,
+        expirationTime = 0
     )
 }
 

@@ -5,7 +5,8 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
-private const val defaultPattern = "dd/MM/yyyy HH:mm:ss"
+private const val timePattern = "HH:mm:ss"
+private const val defaultPattern = "dd/MM/yyyy $timePattern"
 
 fun LocalTime.toDuration(): Duration {
     return Duration
@@ -26,4 +27,9 @@ fun String.toLocalTime(): LocalTime {
 
 fun LocalDateTime.format(pattern: String = defaultPattern): String {
     return DateTimeFormatter.ofPattern(pattern).format(this)
+}
+
+fun Long.formatTime(pattern: String = timePattern): String {
+    val seconds = LocalTime.ofSecondOfDay(this / 1000)
+    return DateTimeFormatter.ofPattern(pattern).format(seconds)
 }
