@@ -35,7 +35,7 @@ class TokenDaoTest {
     }
 
     @Test
-    fun saveTokenAndRetrieveTheFirst(): Unit = runBlocking {
+    fun saveTokenAndRetrieveTheFirst() = runBlocking {
         saveToken()
 
         val entity = dao.getToken()
@@ -44,7 +44,7 @@ class TokenDaoTest {
     }
 
     @Test
-    fun shouldBeNullWhenThereIsNoLocalToken(): Unit = runBlocking {
+    fun shouldBeNullWhenThereIsNoLocalToken() = runBlocking {
         val entity = dao.getToken()
 
         assertNull(entity)

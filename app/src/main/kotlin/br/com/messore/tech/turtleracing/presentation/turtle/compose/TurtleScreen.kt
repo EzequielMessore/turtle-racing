@@ -39,8 +39,6 @@ import java.time.LocalTime
 @ExperimentalFoundationApi
 internal fun TurtleScreen(
     turtles: List<Turtle>,
-    loading: Boolean = true,
-    onClick: () -> Unit = {},
 ) {
     val countTimeViewModel: ClockViewModel = viewModel()
     LazyVerticalGrid(cells = GridCells.Fixed(2)) {

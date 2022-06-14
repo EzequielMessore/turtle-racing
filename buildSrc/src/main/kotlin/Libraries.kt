@@ -43,7 +43,8 @@ object Libraries {
 
     object Lifecycle {
         const val runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Lifecycle.lifecycle}"
-        const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Lifecycle.viewModelCompose}"
+        const val viewModelCompose =
+            "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Lifecycle.viewModelCompose}"
     }
 
     object Google {

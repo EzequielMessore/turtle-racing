@@ -24,7 +24,6 @@ internal val MIGRATE_02_03 = migrate(2..3) {
     """
 }
 
-
 private fun migrate(version: IntRange, sql: () -> String) =
     object : Migration(version.first, version.last) {
         override fun migrate(database: SupportSQLiteDatabase) {
@@ -32,6 +31,4 @@ private fun migrate(version: IntRange, sql: () -> String) =
         }
     }
 
-
 internal val allMigrations = MIGRATE_01_02 + MIGRATE_02_03
-

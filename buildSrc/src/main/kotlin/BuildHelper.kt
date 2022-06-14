@@ -10,19 +10,19 @@ import org.gradle.api.Project
 import org.gradle.api.plugins.ExtensionAware
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
-internal fun Project.android(configure: Action<BaseAppModuleExtension>): Unit =
+internal fun Project.android(configure: Action<BaseAppModuleExtension>) =
     (this as ExtensionAware).extensions.configure("android", configure)
 
-internal fun Project.androidLib(configure: LibraryExtension.() -> Unit): Unit =
+internal fun Project.androidLib(configure: LibraryExtension.() -> Unit) =
     (this as ExtensionAware).extensions.configure("android", configure)
 
-internal fun BaseAppModuleExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
+internal fun BaseAppModuleExtension.kotlinOptions(configure: Action<KotlinJvmOptions>) =
     (this as ExtensionAware).extensions.configure("kotlinOptions", configure)
 
-internal fun LibraryExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
+internal fun LibraryExtension.kotlinOptions(configure: Action<KotlinJvmOptions>) =
     (this as ExtensionAware).extensions.configure("kotlinOptions", configure)
 
-internal fun Project.java(configure: Action<org.gradle.api.plugins.JavaPluginExtension>): Unit =
+internal fun Project.java(configure: Action<org.gradle.api.plugins.JavaPluginExtension>) =
     (this as ExtensionAware).extensions.configure("java", configure)
 
 fun Project.androidConfig(
@@ -107,6 +107,3 @@ fun Project.androidLibConfig(
 
     androidConfig(this)
 }
-
-
-

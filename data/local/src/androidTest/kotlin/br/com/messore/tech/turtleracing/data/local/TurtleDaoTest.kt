@@ -34,7 +34,7 @@ class TurtleDaoTest {
     }
 
     @Test
-    fun shouldBeSaveAllTurtles(): Unit = runBlocking {
+    fun shouldBeSaveAllTurtles() = runBlocking {
         val turtles = createTurtles(3).toTypedArray()
 
         dao.save(*turtles)
@@ -44,13 +44,13 @@ class TurtleDaoTest {
     }
 
     @Test
-    fun shouldBeReturnsEmptyList(): Unit = runBlocking {
+    fun shouldBeReturnsEmptyList() = runBlocking {
         val list = dao.getAll()
         assertTrue(list.isEmpty())
     }
 
     @Test
-    fun shouldBeReplaceTheItemIfIdIsEquals(): Unit = runBlocking {
+    fun shouldBeReplaceTheItemIfIdIsEquals() = runBlocking {
         val turtles = createTurtles(2)
 
         dao.save(turtles.first())

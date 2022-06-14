@@ -28,7 +28,6 @@ class TurtleActivity : ComponentActivity() {
                 val state by viewModel.state.collectAsState()
 
                 TurtleScreen(
-                    loading = state.isLoading,
                     turtles = state.turtles
                 )
             }

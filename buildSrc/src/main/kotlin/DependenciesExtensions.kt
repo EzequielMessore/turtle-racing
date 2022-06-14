@@ -3,7 +3,6 @@ import extensions.api
 import extensions.debugImplementation
 import extensions.implementation
 import extensions.kapt
-import extensions.testImplementation
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 

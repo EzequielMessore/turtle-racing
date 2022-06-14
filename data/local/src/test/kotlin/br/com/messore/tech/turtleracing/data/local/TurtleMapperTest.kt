@@ -6,7 +6,6 @@ import br.com.messore.tech.turtleracing.data.local.model.TurtleEntity
 import br.com.messore.tech.turtleracing.domain.model.Turtle
 import br.com.messore.tech.turtleracing.domain.model.TurtleType
 import java.time.LocalTime
-import java.util.UUID
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
