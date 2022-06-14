@@ -17,5 +17,5 @@ object Plugins {
 
     const val hilt = "dagger.hilt.android.plugin"
 
-    const val ktlint = "org.jlleitschuh.gradle.ktlint"
+    const val detekt = "io.gitlab.arturbosch.detekt"
 }

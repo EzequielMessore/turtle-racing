@@ -1,4 +1,4 @@
-name: Ktlint and unit tests
+name: Detekt and unit tests
 
 on:
   workflow_dispatch:
@@ -7,13 +7,13 @@ on:
       - main
 
 jobs:
-  ktlint:
+  detekt:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Ktlint Verification
-        run: ./gradlew ktlintCheck
+      - name: Detekt Verification
+        run: ./gradlew detekt
   unit_tests:
     runs-on: ubuntu-latest
     steps:

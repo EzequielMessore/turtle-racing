@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.ktlint) version Versions.ktlint
+    id(Plugins.detekt) version Versions.detekt
 }
 
 buildscript {
@@ -12,6 +12,7 @@ buildscript {
         classpath(Dependencies.gradle)
         classpath(Dependencies.kotlin)
         classpath(Dependencies.daggerHilt)
+        classpath(Dependencies.detekt)
     }
 }
 
@@ -36,9 +37,28 @@ subprojects {
             jvmTarget = "11"
         }
     }
-    apply(plugin = Plugins.ktlint)
 }
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
+
+dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.detekt}")
+}
+
+detekt {
+    toolVersion = Versions.detekt
+    source = files(getSrcDirectors())
+    autoCorrect = true
+
+    config = files("${projectDir}/detekt/detekt.yml")
+    reportsDir = file("${projectDir}/build/reports/detekt/")
+}
+
+/**
+ * function responsible for retrieving all `src` folders of the project
+ */
+fun getSrcDirectors() = projectDir.walk().filter { file ->
+    file.isDirectory && file.absolutePath.endsWith("src")
+}.toList()
