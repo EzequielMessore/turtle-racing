@@ -33,4 +33,10 @@ class TurtleDataSourceRemote @Inject constructor(
             else throw UnexpectedException(run.error)
         }.getOrThrowDomainError().toDomain()
     }
+
+    override suspend fun recovery(turtleId: String) {
+        return runCatching {
+            service.recovery(turtleId)
+        }.getOrThrowDomainError()
+    }
 }

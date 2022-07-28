@@ -8,4 +8,5 @@ interface TurtleRepository {
     suspend fun play(turtleId: String): Run
     suspend fun save(turtles: List<Turtle>)
     suspend fun getTurtle(turtleId: String): Turtle
+    suspend fun recovery(turtleId: String)
 }

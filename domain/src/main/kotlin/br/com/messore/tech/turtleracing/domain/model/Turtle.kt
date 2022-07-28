@@ -14,5 +14,6 @@ data class Turtle(
     val image: String? = null,
     val expirationTime: Long = 0,
 ) {
-    val canRun get() = missingRun > 0
+    val canRun get() = missingRun > 0 && energy > 0
+    val hasEnergy get() = energy > 0
 }

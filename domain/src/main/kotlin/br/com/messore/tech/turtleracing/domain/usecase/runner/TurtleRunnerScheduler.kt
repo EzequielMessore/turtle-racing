@@ -4,4 +4,5 @@ import java.time.LocalTime
 
 interface TurtleRunnerScheduler {
     fun schedule(turtleId: String, timer: LocalTime)
+    fun recovery()
 }

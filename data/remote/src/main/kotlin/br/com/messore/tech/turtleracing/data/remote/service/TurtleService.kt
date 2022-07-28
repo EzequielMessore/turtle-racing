@@ -16,4 +16,7 @@ interface TurtleService {
 
     @GET("getTurtle")
     suspend fun getTurtle(@Query("id") turtleId: String): TurtleResponse
+
+    @GET("feed")
+    suspend fun recovery(@Query("id") turtleId: String)
 }

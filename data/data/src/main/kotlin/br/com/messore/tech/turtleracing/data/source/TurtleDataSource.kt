@@ -13,5 +13,6 @@ sealed interface TurtleDataSource {
         suspend fun getAll(): List<Turtle>
         suspend fun play(turtleId: String): Run
         suspend fun getTurtle(turtleId: String): Turtle
+        suspend fun recovery(turtleId: String)
     }
 }
