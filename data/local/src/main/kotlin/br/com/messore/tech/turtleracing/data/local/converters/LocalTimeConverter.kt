@@ -14,5 +14,4 @@ class LocalTimeConverter {
     fun toDateString(localTime: LocalTime?): String? {
         return localTime?.toString()
     }
-
 }

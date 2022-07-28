@@ -73,5 +73,5 @@ object Versions {
     const val retrofit = "2.9.0"
     const val loggingInterceptor = "4.9.0"
     const val timber = "5.0.1"
-    const val ktlint = "10.2.1"
+    const val detekt = "1.20.0"
 }

@@ -13,5 +13,4 @@ interface TokenDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(token: TokenEntity): Long
-
 }

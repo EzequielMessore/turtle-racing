@@ -26,5 +26,4 @@ class App : Application(), Configuration.Provider {
         createNotificationChannel()
         Timber.plant(DebugTree())
     }
-
 }

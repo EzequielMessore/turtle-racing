@@ -14,5 +14,4 @@ interface TurtleDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(vararg turtle: TurtleEntity)
-
 }

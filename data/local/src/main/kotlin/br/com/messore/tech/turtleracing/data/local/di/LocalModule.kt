@@ -18,5 +18,4 @@ interface LocalModule {
 
     @Binds
     fun providesTurtleDataSource(impl: TurtleDataSourceLocal): TurtleDataSource.Local
-
 }
